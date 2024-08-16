@@ -1,0 +1,8 @@
+<%= form_with url:events_url , method: :post do %>
+    <%= hidden_field_tag :event_type, 'A' %>
+    <%= submit_tag 'Event A' %>
+<% end %>
+<%= form_with url:events_url , method: :post do %>
+    <%= hidden_field_tag :event_type, 'B' %>
+    <%= submit_tag 'Event B' %>
+<% end %>
