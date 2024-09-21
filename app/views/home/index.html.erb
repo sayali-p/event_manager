@@ -1,8 +1,11 @@
-<%= form_with url:events_url , method: :post do %>
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh">
+
+  <%= form_with url:events_url, class: 'p-2', method: :post do %>
     <%= hidden_field_tag :event_type, 'A' %>
-    <%= submit_tag 'Event A' %>
-<% end %>
-<%= form_with url:events_url , method: :post do %>
+    <%= submit_tag 'Event A', class: 'btn btn-primary btn-lg' %>
+  <% end %>
+  <%= form_with url:events_url, class: 'p-2', method: :post do %>
     <%= hidden_field_tag :event_type, 'B' %>
-    <%= submit_tag 'Event B' %>
-<% end %>
+    <%= submit_tag 'Event B', class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</div>
