@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     end
 
     if response.status == 200
-      render json: {type: event_type}, status: :created
+      render json: {msg: "Successfully processed #{event_type}"}, status: :created
     else
       render json: response, status: :service_unavailable
     end
