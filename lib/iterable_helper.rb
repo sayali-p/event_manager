@@ -26,7 +26,7 @@ class IterableHelper
       req.headers['x-api-key'] = API_KEY
       req.body = {
         recipientEmail: email
-      }
+    }.to_json
     end
 
     response
