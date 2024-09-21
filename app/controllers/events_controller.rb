@@ -5,15 +5,16 @@ class EventsController < ApplicationController
 
   def create
     event_type = params[:event_type]
-    
+    iterable = IterableHelper.new
+
     # Create event if it's type is 'A' or 'B'
     if event_type == 'A' or event_type == 'B'
-      response = IterableHelper.new.create_event('xyz@gmail.com', params[:event_type])
+      response = iterable.create_event('xyz@gmail.com', params[:event_type])
     end
 
     # Send email only if event is already created.
     if event_type == 'B' and response.status == 200
-      response = IterableHelper.new.send_email('xyz@gmail.com')
+      response = iterable.send_email('xyz@gmail.com')
     end
 
     if response.status == 200
