@@ -1,11 +1,17 @@
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh">
-
-  <%= form_with url:events_url, class: 'p-2', method: :post do %>
-    <%= hidden_field_tag :event_type, 'A' %>
-    <%= submit_tag 'Event A', class: 'btn btn-primary btn-lg' %>
-  <% end %>
-  <%= form_with url:events_url, class: 'p-2', method: :post do %>
-    <%= hidden_field_tag :event_type, 'B' %>
-    <%= submit_tag 'Event B', class: 'btn btn-primary btn-lg' %>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <h1>Welcome Home, <%= current_user.email %></h1>
+  <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+  <div class="container d-flex justify-content-center align-items-center" style="height: 100vh">
+    <%= form_with url:events_url, class: 'p-2', method: :post do %>
+      <%= hidden_field_tag :event_type, 'A' %>
+      <%= submit_tag 'Event A', class: 'btn btn-primary btn-lg' %>
+    <% end %>
+    <%= form_with url:events_url, class: 'p-2', method: :post do %>
+      <%= hidden_field_tag :event_type, 'B' %>
+      <%= submit_tag 'Event B', class: 'btn btn-primary btn-lg' %>
+    <% end %>
+  </div>
+<% else %>
+  <h1>Home</h1>
+  <%= link_to 'Sign in', new_user_session_path %>
+<% end %>

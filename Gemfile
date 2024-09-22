@@ -63,3 +63,4 @@ end
 gem "cssbundling-rails", "~> 1.4"
 gem "faraday" 
 gem "webmock", "~> 3.23"
+gem 'devise', '~> 4.9.2'
