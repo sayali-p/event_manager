@@ -8,6 +8,12 @@ class EventsController < ApplicationController
   def create
     event_type = params[:event_type]
     iterable = IterableHelper.new
+
+    event_processed_response = {
+      'A': 'Created Event A',
+      'B': "Created Event B and Sent an email to #{current_user.email}"
+  }.with_indifferent_access
+
     # Create event if it's type is 'A' or 'B'
     if event_type == 'A' or event_type == 'B'
       response = iterable.create_event(current_user.email, params[:event_type])
@@ -19,9 +25,11 @@ class EventsController < ApplicationController
     end
 
     if response.status == 200
-      render json: {msg: "Successfully processed #{event_type}"}, status: :created
+      flash[:notice] = event_processed_response[event_type]
+      redirect_to home_index_url
     else
-      render json: response, status: :service_unavailable
+      flash[:notice] = "Failed to processed #{event_type}"
+      redirect_to home_index_url
     end
   end
 end
