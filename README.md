@@ -4,6 +4,9 @@ Creates an event on Iterable.com whenever `Event A` or `Event B` is clicked. Sen
 
 ![Application screenshot](eventManager.png)
 
+<video src="EventManager-video.mp4" width="320" height="240" controls></video>
+
+
 Responses of APIs:
 ```
 Started POST "/events" for ::1 at 2024-09-22 02:02:42 +0530
