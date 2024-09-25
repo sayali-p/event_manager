@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <div class="container d-flex justify-content-center align-items-center" style="height: 100vh">
+  <div class="center-container">
     <%= form_with url:events_url, class: 'p-2', method: :post do %>
       <%= hidden_field_tag :event_type, 'A' %>
       <%= submit_tag 'Event A', class: 'btn btn-primary btn-lg' %>

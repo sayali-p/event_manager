@@ -17,7 +17,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="padding-left: 20px">
+  <body class="page-padding">
     <nav class="navbar navbar-light bg-light">
       <span class="navbar-brand mb-0 h1">Event Manager</span>
       <span class="navbar-brand mb-0 h1">
@@ -38,8 +38,8 @@
         <% end %>
       <% end %>
 
-    <div style="display: flex; justify-content: center">
-      <div style="display: block">
+    <div class="d-flex justify-content-center">
+      <div class="d-block">
         <%= yield %>
       </div>
     </div>
