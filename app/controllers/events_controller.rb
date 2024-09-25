@@ -28,7 +28,7 @@ class EventsController < ApplicationController
       flash[:notice] = event_processed_response[event_type]
       redirect_to home_index_url
     else
-      flash[:notice] = "Failed to processed #{event_type}"
+      flash[:notice] = "Failed to process Event #{event_type}"
       redirect_to home_index_url
     end
   end
