@@ -2,12 +2,33 @@
 
 Creates an event on Iterable.com whenever `Event A` or `Event B` is clicked. Send an email when `Event B` is clicked.
 
+# Development Setup
+
+## Pre-requisite:
+- Rails 7+
+- Ruby 3.1.2
+- Sqlite 3.40.1
+
+## Steps to run application 
+```
+bundle install
+rails assets:precompile
+rails db:migrate
+rails server
+```
+
+## Running test cases:
+
+```
+rails test test/controllers/events_controller_test.rb
+```
+
 ![Application screenshot](eventManager.png)
 
 <video src="EventManager-video.mp4" width="320" height="240" controls></video>
 
 
-Responses of APIs:
+# Responses of APIs:
 ```
 Started POST "/events" for ::1 at 2024-09-22 02:02:42 +0530
 Processing by EventsController#create as TURBO_STREAM
