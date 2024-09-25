@@ -1,14 +1,12 @@
 require 'faraday'
 
-ITERABLE_BASE_URL = "https://api.iterable.com"
-API_KEY = "mockAPIKey"
 
 class IterableHelper
   def create_event(email, event_type)
     conn = create_connection
 
     response = conn.post('/api/events/track') do |req|
-      req.headers['x-api-key'] = API_KEY
+      req.headers['x-api-key'] = ITERABLE_CONFIG["iterable_api_key"]
       req.body = {
         email: email,
         eventName: event_type,
@@ -23,7 +21,7 @@ class IterableHelper
     conn = create_connection
 
     response = conn.post('/api/email/target') do |req|
-      req.headers['x-api-key'] = API_KEY
+      req.headers['x-api-key'] = ITERABLE_CONFIG["iterable_api_key"]
       req.body = {
         recipientEmail: email
     }.to_json
@@ -33,7 +31,7 @@ class IterableHelper
   end
 
   def create_connection
-    Faraday.new(url: ITERABLE_BASE_URL, headers: {'Content-Type' => 'application/json'}) do |faraday|
+    Faraday.new(url: ITERABLE_CONFIG["iterable_base_url"], headers: {'Content-Type' => 'application/json'}) do |faraday|
       faraday.request  :url_encoded
       faraday.response :logger
       faraday.adapter  Faraday.default_adapter

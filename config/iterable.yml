@@ -1,0 +1,3 @@
+iterable_base_url: "https://api.iterable.com"
+iterable_api_key: "mockApiKey"
+use_iterable_mock: true
